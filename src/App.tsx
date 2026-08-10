@@ -9,7 +9,7 @@ const Experience = lazy(() => import('./components/Experience').then(m => ({ def
 const SkillsEducation = lazy(() => import('./components/SkillsEducation').then(m => ({ default: m.SkillsEducation })))
 const Footer = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })))
 
-const sectionIds = ['home', 'about', 'work', 'experience', 'skills', 'contact']
+const sectionIds = ['home', 'about', 'work', 'experience', 'skills', 'education', 'contact']
 
 function Portfolio() {
   const [activeSection, setActiveSection] = useState('home')
