@@ -5,11 +5,10 @@ import { useTheme } from '@/lib/theme'
 
 const links = [
   { label: 'About',      href: '#about',      id: 'about' },
-  { label: 'Work',       href: '#work',        id: 'work' },
   { label: 'Experience', href: '#experience',  id: 'experience' },
+  { label: 'Projects',   href: '#work',        id: 'work2' },
   { label: 'Skills',     href: '#skills',      id: 'skills' },
   { label: 'Education',  href: '#education',   id: 'education' },
-  { label: 'Projects',   href: '#work',        id: 'work2' },
   { label: 'Contact',    href: '#contact',     id: 'contact' },
 ]
 

@@ -35,7 +35,7 @@ export interface HeroStat {
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 export const heroStats: HeroStat[] = [
-  { value: '4+', label: 'Years shipping products', context: 'Since 2020' },
+  { value: '5+', label: 'Years shipping products', context: 'Since 2020' },
   {
     value: '30%',
     label: 'API response time cut',
@@ -58,7 +58,7 @@ export const projects: Project[] = [
       'Extracted 20+ reusable components, cutting feature delivery time by ~40%',
     ],
     techStack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
-    liveUrl: '',
+    liveUrl: 'https://outplacio.com',
     githubUrl: '',
   },
   {
@@ -74,12 +74,12 @@ export const projects: Project[] = [
       'Achieved consistent sub-200ms render times on data-heavy list views',
     ],
     techStack: ['Next.js', 'Material UI', 'Redux Toolkit', 'REST APIs'],
-    liveUrl: '',
+    liveUrl: 'https://next-task-seven-hazel.vercel.app/',
     githubUrl: '',
   },
   {
-    id: 'commercehub',
-    title: 'Commercehub',
+    id: 'Commercehope',
+    title: 'Commercehope',
     subtitle: 'Single-vendor commerce platform',
     role: 'Full-stack application',
     description:
@@ -90,14 +90,14 @@ export const projects: Project[] = [
       'Deployed assets via AWS S3 + CloudFront, cutting media load time by ~60%',
     ],
     techStack: ['Next.js', 'Express', 'MongoDB', 'AWS S3', 'CloudFront', 'Redux Toolkit'],
-    liveUrl: '',
+    liveUrl: 'https://commerce-hope.vercel.app/',
     githubUrl: '',
   },
 ]
 
 export const experiences: Experience[] = [
   {
-    company: 'Smart Forum (Qualcomm Projects)',
+    company: 'Smart Forum',
     role: 'Software Engineer',
     period: '07/2021 – Present',
     location: 'Islamabad, Pakistan',
@@ -141,11 +141,11 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     categoryName: 'Backend',
-    skills: ['Node.js', 'Express.js', 'REST APIs', 'JWT Authentication', 'WebSockets'],
+    skills: ['Node.js', 'Express.js', 'PostgreSQL', 'Python', 'FastAPI', 'REST APIs', 'JWT Authentication', 'WebSockets'],
   },
   {
     categoryName: 'Database',
-    skills: ['PostgreSQL', 'MongoDB', 'MySQL'],
+    skills: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'Database Design', 'Query Optimisation'],
   },
   {
     categoryName: 'DevOps & Tools',
@@ -154,8 +154,8 @@ export const skillCategories: SkillCategory[] = [
 ]
 
 export const education = [
-  { level: 'Diploma in Information Technology', school: 'CTTI, Islamabad', marks: '75%' },
-  { level: 'Matriculation (Science)', school: 'Telecom Foundation School', marks: '78%' },
+  { level: 'Bachelor of Software Engineering', school: 'Virtual University, Islamabad', marks: '72%' },
+  { level: 'Diploma of Associate Engineer', school: 'CTTI, Islamabad', marks: '75%' },
 ]
 
 export const certificates = [

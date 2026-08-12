@@ -11,7 +11,7 @@ interface ContactPayload {
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdenzozw'
 
 const inputStyle: React.CSSProperties = {
   width: '100%',

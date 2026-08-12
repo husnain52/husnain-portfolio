@@ -40,8 +40,8 @@ function Portfolio() {
         <Hero />
         <Suspense fallback={null}>
           <About />
-          <Projects />
           <Experience />
+          <Projects />
           <SkillsEducation />
         </Suspense>
       </main>
