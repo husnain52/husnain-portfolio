@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { heroStats, socialLinks } from '@/data/portfolioData'
+import { ArrowDown, Copy, Check } from 'lucide-react'
 
 const GithubIcon = () => (
   <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
@@ -13,128 +15,233 @@ const LinkedinIcon = () => (
 )
 
 export const Hero = () => {
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(socialLinks.email)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center px-8 pt-20 pb-16 overflow-hidden">
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="grid md:grid-cols-[1fr_340px] lg:grid-cols-[1fr_380px] gap-12 lg:gap-16 items-center">
+    <section id="home" className="relative min-h-[92vh] flex items-center px-6 md:px-8 pt-28 pb-16 overflow-hidden">
+      {/* Background ambient spotlight */}
+      <div className="glow-spotlight" />
 
-          {/* Left — text */}
-          <div className="flex flex-col gap-7">
+      <div className="max-w-6xl mx-auto w-full relative z-10">
+        <div className="grid md:grid-cols-[1fr_360px] lg:grid-cols-[1fr_400px] gap-12 lg:gap-16 items-center">
 
-            <div className="stagger-1 flex items-center gap-2.5">
-              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'var(--accent)' }} />
-              <span className="text-[13px] tracking-[0.12em] uppercase font-medium" style={{ color: 'var(--accent)' }}>
-                Available for product teams &amp; full-stack builds
+          {/* Left — content */}
+          <div className="flex flex-col gap-6">
+
+            {/* Status indicator pill */}
+            <div className="stagger-1 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border w-fit shadow-sm" style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
+              <span className="radar-beacon w-2 h-2 rounded-full" style={{ backgroundColor: '#10b981' }} />
+              <span className="text-[12px] tracking-[0.04em] uppercase font-semibold" style={{ color: 'var(--foreground)' }}>
+                Available for engineering roles &amp; product builds
               </span>
             </div>
 
-            <div className="stagger-2 flex flex-col gap-0.5">
+            {/* Hero Headline */}
+            <div className="stagger-2 flex flex-col gap-1">
               <h1
-                className="text-[clamp(28px,4vw,52px)] leading-[1.08] font-display font-bold"
-                style={{ letterSpacing: '-0.03em', color: 'var(--foreground)' }}
+                className="text-[clamp(32px,5vw,56px)] leading-[1.08] font-bold tracking-tight"
+                style={{ color: 'var(--foreground)' }}
               >
                 Full-stack developer
               </h1>
-              <h1
-                className="text-[clamp(28px,4vw,52px)] leading-[1.08] font-display font-bold"
-                style={{ letterSpacing: '-0.03em', color: 'var(--foreground-muted)', opacity: 0.3 }}
+              <h2
+                className="text-[clamp(28px,4.5vw,50px)] leading-[1.08] font-bold tracking-tight"
+                style={{ color: 'var(--foreground-muted)', opacity: 0.65 }}
               >
-                for polished web products.
-              </h1>
+                building polished, resilient web apps.
+              </h2>
             </div>
 
-            <p className="stagger-3 text-base leading-[1.8] max-w-sm" style={{ color: 'var(--foreground-muted)' }}>
-              I build responsive dashboards, reliable Node.js APIs, and cloud-ready interfaces with React, Next.js, TypeScript, and a product-minded approach to detail.
+            {/* Intro paragraph */}
+            <p className="stagger-3 text-base md:text-lg leading-[1.75] max-w-xl" style={{ color: 'var(--foreground-muted)' }}>
+              Specialized in <strong className="font-semibold text-foreground">React</strong>, <strong className="font-semibold text-foreground">Next.js</strong>, <strong className="font-semibold text-foreground">TypeScript</strong>, and <strong className="font-semibold text-foreground">Node.js</strong> APIs. Architecting fast, accessible interfaces and scalable backend services with 5+ years of production experience.
             </p>
 
-            <div className="stagger-4 flex flex-wrap gap-3 items-center">
+            {/* Primary Action Buttons */}
+            <div className="stagger-4 flex flex-wrap gap-3 items-center pt-2">
               <a
                 href="#work"
-                className="inline-flex items-center text-sm tracking-[0.04em] font-semibold px-5 py-2.5 border transition-all duration-200 hover:opacity-80"
-                style={{ color: 'var(--background)', backgroundColor: 'var(--foreground)', borderColor: 'var(--foreground)' }}
+                className="inline-flex items-center gap-2 text-sm tracking-wide font-semibold px-5 py-3 rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-sm active:scale-95"
+                style={{
+                  color: '#ffffff',
+                  backgroundColor: 'var(--accent)',
+                }}
               >
-                View selected work
+                <span>View Selected Work</span>
+                <ArrowDown size={15} />
               </a>
+
               <a
                 href="#contact"
-                className="inline-flex items-center text-sm tracking-[0.04em] font-semibold px-5 py-2.5 border transition-all duration-200 hover:opacity-70"
-                style={{ color: 'var(--foreground)', borderColor: 'var(--border)' }}
+                className="inline-flex items-center gap-2 text-sm tracking-wide font-semibold px-5 py-3 rounded-xl border transition-all duration-200 hover:scale-[1.02] shadow-sm active:scale-95"
+                style={{
+                  color: 'var(--foreground)',
+                  backgroundColor: 'var(--surface)',
+                  borderColor: 'var(--border)',
+                }}
               >
-                Start a conversation
+                <span>Get in Touch</span>
               </a>
 
-              {/* Icon links */}
-              <a
-                href={socialLinks.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="inline-flex items-center justify-center w-10 h-10 border transition-all duration-200 hover:opacity-60"
-                style={{ color: 'var(--foreground)', borderColor: 'var(--border)' }}
+              {/* Copy email quick button */}
+              <button
+                onClick={copyEmail}
+                aria-label="Copy email address"
+                className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-3 rounded-xl border transition-all duration-200 hover:scale-[1.02]"
+                style={{
+                  color: copied ? '#10b981' : 'var(--foreground-muted)',
+                  backgroundColor: 'var(--surface)',
+                  borderColor: copied ? '#10b981' : 'var(--border)',
+                }}
               >
-                <GithubIcon />
-              </a>
-              <a
-                href={socialLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="inline-flex items-center justify-center w-10 h-10 border transition-all duration-200 hover:opacity-60"
-                style={{ color: 'var(--foreground)', borderColor: 'var(--border)' }}
-              >
-                <LinkedinIcon />
-              </a>
+                {copied ? <Check size={14} className="text-emerald-500" /> : <Copy size={14} />}
+                <span>{copied ? 'Email Copied!' : 'Copy Email'}</span>
+              </button>
+
+              {/* Social icons */}
+              <div className="flex items-center gap-2">
+                <a
+                  href={socialLinks.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-xl border transition-all duration-200 hover:scale-105"
+                  style={{
+                    backgroundColor: 'var(--surface)',
+                    borderColor: 'var(--border)',
+                    color: 'var(--foreground)',
+                  }}
+                >
+                  <GithubIcon />
+                </a>
+                <a
+                  href={socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-xl border transition-all duration-200 hover:scale-105"
+                  style={{
+                    backgroundColor: 'var(--surface)',
+                    borderColor: 'var(--border)',
+                    color: 'var(--foreground)',
+                  }}
+                >
+                  <LinkedinIcon />
+                </a>
+              </div>
             </div>
 
-            <div className="stagger-5 w-full h-px" style={{ backgroundColor: 'var(--border)' }} />
-
-            <div className="stagger-5 flex flex-wrap gap-10">
+            {/* Quick Metrics Grid */}
+            <div className="stagger-5 grid grid-cols-3 gap-3 md:gap-4 pt-6 border-t" style={{ borderColor: 'var(--border)' }}>
               {heroStats.map((stat) => (
-                <div key={stat.label}>
+                <div
+                  key={stat.label}
+                  className="glass-card p-4 flex flex-col justify-center"
+                >
                   <p
-                    className="font-display font-bold text-[clamp(20px,2vw,28px)] leading-none"
-                    style={{ letterSpacing: '-0.03em', color: 'var(--foreground)' }}
+                    className="font-bold text-2xl md:text-3xl leading-none"
+                    style={{ color: 'var(--foreground)' }}
                   >
                     {stat.value}
                   </p>
-                  <p className="text-[13px] font-medium mt-1.5" style={{ color: 'var(--foreground-muted)' }}>
+                  <p className="text-[12px] md:text-[13px] font-semibold mt-2" style={{ color: 'var(--foreground)' }}>
                     {stat.label}
                   </p>
-                  <p className="text-[13px] mt-0.5 opacity-50" style={{ color: 'var(--foreground-muted)' }}>
+                  <p className="text-[11px] mt-0.5 opacity-60 leading-tight" style={{ color: 'var(--foreground-muted)' }}>
                     {stat.context}
                   </p>
                 </div>
               ))}
             </div>
+
           </div>
 
-          {/* Right — portrait */}
-          <div className="stagger-2 hidden md:flex items-center justify-center">
-            <div className="relative w-full">
-              <div className="absolute -top-2 -left-2 w-5 h-5 pointer-events-none" style={{ borderTop: '2px solid var(--accent)', borderLeft: '2px solid var(--accent)' }} />
-              <div className="absolute -top-2 -right-2 w-5 h-5 pointer-events-none" style={{ borderTop: '2px solid var(--accent)', borderRight: '2px solid var(--accent)' }} />
-              <div className="absolute -bottom-2 -left-2 w-5 h-5 pointer-events-none" style={{ borderBottom: '2px solid var(--accent)', borderLeft: '2px solid var(--accent)' }} />
-              <div className="absolute -bottom-2 -right-2 w-5 h-5 pointer-events-none" style={{ borderBottom: '2px solid var(--accent)', borderRight: '2px solid var(--accent)' }} />
+          {/* Right — Refined Portrait with Floating Tech Badges */}
+          <div className="stagger-2 hidden md:flex items-center justify-center relative">
+            <div className="relative w-full max-w-[340px] group">
 
-              <div className="relative overflow-hidden" style={{ borderRadius: '2px' }}>
+              {/* Ambient image background ring */}
+              <div
+                className="absolute -inset-1 rounded-2xl opacity-40 blur-lg transition duration-500 group-hover:opacity-75"
+                style={{
+                  background: 'linear-gradient(135deg, var(--accent), #6366f1, #06b6d4)',
+                }}
+              />
+
+              {/* Card Container */}
+              <div
+                className="relative rounded-2xl overflow-hidden border shadow-xl"
+                style={{
+                  backgroundColor: 'var(--surface)',
+                  borderColor: 'var(--border)',
+                }}
+              >
                 <img
                   src="/hero-image.png"
                   alt="Husnain Akhtar"
-                  className="w-full block"
+                  className="w-full block object-cover object-top transition duration-500 group-hover:scale-[1.02]"
                   style={{
                     aspectRatio: '662 / 768',
-                    objectFit: 'cover',
-                    objectPosition: 'top',
-                    filter: 'brightness(0.82) contrast(1.08) saturate(0.75)',
+                    filter: 'brightness(0.92) contrast(1.05)',
                   }}
                 />
-                <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(160deg, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 60%)', mixBlendMode: 'normal' }} />
-                <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 50%, color-mix(in srgb, var(--background) 55%, transparent) 100%)' }} />
-                <div className="absolute bottom-0 left-0 right-0 px-5 py-4" style={{ background: 'linear-gradient(to top, color-mix(in srgb, var(--background) 80%, transparent), transparent)' }}>
-                  <p className="text-[13px] font-semibold tracking-wide" style={{ color: 'var(--foreground)' }}>Husnain Akhtar</p>
-                  <p className="text-[11px] mt-0.5" style={{ color: 'var(--foreground-muted)' }}>Full-stack Developer · Islamabad</p>
+
+                {/* Subtle gradient vignette */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(to top, color-mix(in srgb, var(--surface) 95%, transparent) 0%, transparent 45%)',
+                  }}
+                />
+
+                {/* Bottom name badge */}
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-bold tracking-tight" style={{ color: 'var(--foreground)' }}>
+                        Husnain Akhtar
+                      </p>
+                      <p className="text-xs flex items-center gap-1.5 mt-0.5" style={{ color: 'var(--foreground-muted)' }}>
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
+                        <span>Islamabad, PK (UTC+5)</span>
+                      </p>
+                    </div>
+                    <span className="text-[11px] font-mono px-2 py-0.5 rounded-md border text-blue-500 border-blue-500/20 bg-blue-500/10">
+                      Full-Stack
+                    </span>
+                  </div>
                 </div>
               </div>
+
+              {/* Floating badges */}
+              <div
+                className="absolute -top-3 -right-3 px-3 py-1 rounded-full text-xs font-semibold shadow-lg border animate-float"
+                style={{
+                  backgroundColor: 'var(--surface)',
+                  borderColor: 'var(--border)',
+                  color: 'var(--foreground)',
+                }}
+              >
+                ⚡ Next.js &amp; React
+              </div>
+
+              <div
+                className="absolute -bottom-3 -left-3 px-3 py-1 rounded-full text-xs font-semibold shadow-lg border"
+                style={{
+                  backgroundColor: 'var(--surface)',
+                  borderColor: 'var(--border)',
+                  color: 'var(--foreground)',
+                }}
+              >
+                ☁️ AWS &amp; Node APIs
+              </div>
+
             </div>
           </div>
 
@@ -143,3 +250,4 @@ export const Hero = () => {
     </section>
   )
 }
+

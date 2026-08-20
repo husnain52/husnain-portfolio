@@ -2,6 +2,8 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import { ThemeProvider } from './lib/theme'
 import { Navigation } from './components/Navigation'
 import { Hero } from './components/Hero'
+import { NeuralNetworkBackground } from './components/NeuralNetworkBackground'
+import { CustomCursor } from './components/CustomCursor'
 
 const About = lazy(() => import('./components/About').then(m => ({ default: m.About })))
 const Projects = lazy(() => import('./components/Projects').then(m => ({ default: m.Projects })))
@@ -34,9 +36,11 @@ function Portfolio() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
+      <CustomCursor />
+      <NeuralNetworkBackground />
       <Navigation activeSection={activeSection} />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <Suspense fallback={null}>
           <About />
@@ -46,7 +50,9 @@ function Portfolio() {
         </Suspense>
       </main>
       <Suspense fallback={null}>
-        <Footer />
+        <div className="relative z-10">
+          <Footer />
+        </div>
       </Suspense>
     </div>
   )

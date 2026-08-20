@@ -1,6 +1,6 @@
-import { type Config } from 'tailwindcss'
 import animate from 'tailwindcss-animate'
 
+/** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
   content: ['./index.html', './src/**/*.{ts,tsx}'],
@@ -46,23 +46,36 @@ export default {
         'luxury-accent': 'var(--accent)',
       },
       borderRadius: {
-        lg: '2px',
-        md: '2px',
-        sm: '1px',
+        '2xl': '16px',
+        xl: '12px',
+        lg: '8px',
+        md: '6px',
+        sm: '4px',
+        full: '9999px',
       },
       transitionTimingFunction: {
         luxury: 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       keyframes: {
         'fade-up': {
-          from: { opacity: '0', transform: 'translateY(12px)' },
+          from: { opacity: '0', transform: 'translateY(16px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        'pulse-subtle': {
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { opacity: '0.4', transform: 'scale(1.15)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-6px)' },
         },
       },
       animation: {
-        'fade-up': 'fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'fade-up': 'fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'pulse-subtle': 'pulse-subtle 2.5s ease-in-out infinite',
+        float: 'float 5s ease-in-out infinite',
       },
     },
   },
   plugins: [animate],
-} satisfies Config
+}

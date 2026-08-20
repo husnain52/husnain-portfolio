@@ -4,47 +4,57 @@
 
 @layer base {
   :root {
-    --background:       #F9F9F8;
-    --surface:          #F2F2F0;
-    --foreground:       #18181B;
-    --foreground-muted: #52525B;
-    --border:           #E4E4E7;
-    --accent:           #2563EB;
-    --accent-muted:     #3B82F6;
+    --background:          #F8F9FA;
+    --surface:             #FFFFFF;
+    --surface-elevated:    #F1F3F5;
+    --foreground:          #0F172A;
+    --foreground-muted:    #475569;
+    --border:              #E2E8F0;
+    --border-subtle:       #F1F5F9;
+    --accent:              #2563EB;
+    --accent-muted:        #3B82F6;
+    --accent-glow:         rgba(37, 99, 235, 0.12);
+    --card-shadow:         0 1px 3px rgba(0,0,0,0.04), 0 4px 14px rgba(0,0,0,0.03);
+    --card-shadow-hover:   0 8px 30px rgba(0,0,0,0.08);
   }
 
   .dark {
-    --background:       #0F1117;
-    --surface:          #181B23;
-    --foreground:       #F1F1F3;
-    --foreground-muted: #8B8D98;
-    --border:           #25272F;
-    --accent:           #3B82F6;
-    --accent-muted:     #60A5FA;
+    --background:          #08090D;
+    --surface:             #0F1117;
+    --surface-elevated:    #161922;
+    --foreground:          #F8FAFC;
+    --foreground-muted:    #94A3B8;
+    --border:              #1E222D;
+    --border-subtle:       #151821;
+    --accent:              #3B82F6;
+    --accent-muted:        #60A5FA;
+    --accent-glow:         rgba(59, 130, 246, 0.15);
+    --card-shadow:         0 1px 3px rgba(0,0,0,0.4), 0 4px 14px rgba(0,0,0,0.3);
+    --card-shadow-hover:   0 8px 30px rgba(0,0,0,0.6);
   }
 
   /* Skill chip palette — light */
   :root {
-    --chip-blue-bg:    #DBEAFE; --chip-blue-fg:    #1D4ED8;
-    --chip-violet-bg:  #EDE9FE; --chip-violet-fg:  #6D28D9;
-    --chip-emerald-bg: #D1FAE5; --chip-emerald-fg: #065F46;
-    --chip-amber-bg:   #FEF3C7; --chip-amber-fg:   #92400E;
-    --chip-rose-bg:    #FFE4E6; --chip-rose-fg:    #9F1239;
-    --chip-sky-bg:     #E0F2FE; --chip-sky-fg:     #0369A1;
-    --chip-teal-bg:    #CCFBF1; --chip-teal-fg:    #0F766E;
-    --chip-orange-bg:  #FFEDD5; --chip-orange-fg:  #9A3412;
+    --chip-blue-bg:    #EFF6FF; --chip-blue-fg:    #1D4ED8; --chip-blue-border:    #BFDBFE;
+    --chip-violet-bg:  #F5F3FF; --chip-violet-fg:  #6D28D9; --chip-violet-border:  #DDD6FE;
+    --chip-emerald-bg: #ECFDF5; --chip-emerald-fg: #047857; --chip-emerald-border: #A7F3D0;
+    --chip-amber-bg:   #FFFBEB; --chip-amber-fg:   #B45309; --chip-amber-border:   #FDE68A;
+    --chip-rose-bg:    #FFF1F2; --chip-rose-fg:    #BE123C; --chip-rose-border:    #FECDD3;
+    --chip-sky-bg:     #F0F9FF; --chip-sky-fg:     #0369A1; --chip-sky-border:     #BAE6FD;
+    --chip-teal-bg:    #F0FDFA; --chip-teal-fg:    #0F766E; --chip-teal-border:    #99F6E4;
+    --chip-orange-bg:  #FFF7ED; --chip-orange-fg:  #C2410C; --chip-orange-border:  #FED7AA;
   }
 
   /* Skill chip palette — dark */
   .dark {
-    --chip-blue-bg:    #1E3A5F; --chip-blue-fg:    #93C5FD;
-    --chip-violet-bg:  #2E1B5E; --chip-violet-fg:  #C4B5FD;
-    --chip-emerald-bg: #064E3B; --chip-emerald-fg: #6EE7B7;
-    --chip-amber-bg:   #451A03; --chip-amber-fg:   #FCD34D;
-    --chip-rose-bg:    #4C0519; --chip-rose-fg:    #FDA4AF;
-    --chip-sky-bg:     #0C2A4A; --chip-sky-fg:     #7DD3FC;
-    --chip-teal-bg:    #042F2E; --chip-teal-fg:    #5EEAD4;
-    --chip-orange-bg:  #431407; --chip-orange-fg:  #FDBA74;
+    --chip-blue-bg:    rgba(30, 58, 138, 0.25);  --chip-blue-fg:    #93C5FD; --chip-blue-border:    rgba(59, 130, 246, 0.3);
+    --chip-violet-bg:  rgba(76, 29, 149, 0.25);  --chip-violet-fg:  #C4B5FD; --chip-violet-border:  rgba(139, 92, 246, 0.3);
+    --chip-emerald-bg: rgba(6, 78, 59, 0.25);    --chip-emerald-fg: #6EE7B7; --chip-emerald-border: rgba(16, 185, 129, 0.3);
+    --chip-amber-bg:   rgba(120, 53, 15, 0.25);  --chip-amber-fg:   #FCD34D; --chip-amber-border:   rgba(245, 158, 11, 0.3);
+    --chip-rose-bg:    rgba(136, 19, 55, 0.25);  --chip-rose-fg:    #FDA4AF; --chip-rose-border:    rgba(244, 63, 94, 0.3);
+    --chip-sky-bg:     rgba(12, 74, 110, 0.25);  --chip-sky-fg:     #7DD3FC; --chip-sky-border:     rgba(14, 165, 233, 0.3);
+    --chip-teal-bg:    rgba(19, 78, 74, 0.25);   --chip-teal-fg:    #5EEAD4; --chip-teal-border:    rgba(20, 184, 166, 0.3);
+    --chip-orange-bg:  rgba(124, 45, 18, 0.25);  --chip-orange-fg:  #FDBA74; --chip-orange-border:  rgba(249, 115, 22, 0.3);
   }
 
   * {
@@ -63,18 +73,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.012em;
     transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  h1, h2, h3 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 700;
     letter-spacing: -0.03em;
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--accent) 18%, transparent);
+    background: color-mix(in srgb, var(--accent) 24%, transparent);
     color: var(--foreground);
   }
 
@@ -83,9 +93,12 @@
     outline-offset: 3px;
   }
 
-  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 9999px;
+  }
   ::-webkit-scrollbar-thumb:hover { background: var(--foreground-muted); }
 }
 
@@ -96,15 +109,50 @@
   flex-direction: column;
 }
 
+/* Glassmorphic card styling */
+.glass-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  border-radius: 12px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Subtle background dot pattern */
+.bg-dot-pattern {
+  background-image: radial-gradient(color-mix(in srgb, var(--foreground) 8%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Ambient glow spotlight */
+.glow-spotlight {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(50px);
+  z-index: 0;
+}
+
 /* Stagger fade-up for page load */
-.stagger-1 { animation: fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0ms both; }
-.stagger-2 { animation: fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) 80ms both; }
-.stagger-3 { animation: fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) 160ms both; }
-.stagger-4 { animation: fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) 240ms both; }
-.stagger-5 { animation: fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) 320ms both; }
+.stagger-1 { animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0ms both; }
+.stagger-2 { animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 80ms both; }
+.stagger-3 { animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 160ms both; }
+.stagger-4 { animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 240ms both; }
+.stagger-5 { animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 320ms both; }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -119,8 +167,33 @@
   bottom: -1px;
   left: 0;
   width: 0;
-  height: 1px;
+  height: 1.5px;
   background: var(--accent);
   transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .link-underline:hover::after { width: 100%; }
+
+/* Radar pulse dot */
+.radar-beacon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.radar-beacon::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background-color: var(--accent);
+  opacity: 0.75;
+  animation: radar-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes radar-ping {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
